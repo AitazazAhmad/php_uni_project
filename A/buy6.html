@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buy Now - Perfumora</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      color: #eee;
+      padding: 30px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #222;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+    h2 {
+      color: #f2c744;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .info {
+      margin-bottom: 25px;
+      font-size: 18px;
+    }
+    .info span {
+      color: #f2c744;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #333;
+      color: white;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #f2c744;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #d0a92a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Payment Details</h2>
+    <div class="info">
+      Product: <span id="productName">Fratelli</span><br>
+      Price: $<span id="productPrice">88.99 </span>
+    </div>
+
+    <input type="text" placeholder="Card Number">
+    <input type="text" placeholder="Cardholder Name">
+    <input type="text" placeholder="Expiry (MM/YY)">
+    <input type="text" placeholder="CVV">
+
+    <button onclick="confirmPayment()">Pay Now</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const price = params.get('price');
+
+    if (name && price) {
+      document.getElementById('productName').textContent = name;
+      document.getElementById('productPrice').textContent = price;
+    }
+
+    function confirmPayment() {
+      alert(`Payment successful for ${name} - $${price}`);
+      window.location.href = "products.html"; // Redirect back
+    }
+  </script>
+
+</body>
+</html>

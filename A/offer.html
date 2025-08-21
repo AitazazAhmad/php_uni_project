@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfume Offers | Perfumora</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+
+    header {
+      background-color: #000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ffd700;
+    }
+
+    header h1 {
+      color: #ffd700;
+      margin: 0;
+      font-size: 28px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600185368370-834e67f76378') center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h2 {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 40px;
+      font-size: 36px;
+      color: #ffd700;
+      border-radius: 10px;
+    }
+
+    .offers-section {
+      padding: 40px 60px;
+    }
+
+    .offers-section h2 {
+      text-align: center;
+      color: #ffd700;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .offer-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #222;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      color: #ffd700;
+      font-size: 20px;
+    }
+
+    .price {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #888;
+      margin-right: 10px;
+    }
+
+    .new-price {
+      color: #ffd700;
+      font-weight: bold;
+    }
+
+    .card-content button {
+      background: #ffd700;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .card-content button:hover {
+      background: #e6c200;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      color: #888;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 24px;
+      }
+    }
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  nav a {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  .hero {
+    height: 200px;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+
+  .offers-section {
+    padding: 20px 15px;
+  }
+
+  .card-content button {
+    width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Perfumora</h1>
+    <nav>
+      <a href="C:\Users\LENOVO\Desktop\A\html\home2.html" >Home</a>
+      <a href="C:\Users\LENOVO\Desktop\A\html\product1.html" >Products</a>
+      <a href="C:\Users\LENOVO\Desktop\A\html\scents1.html" >Scents</a>
+      <a href="C:\Users\LENOVO\Desktop\A\html\about1.html" >About</a>
+      <a href="C:\Users\LENOVO\Desktop\A\html\contact1.html" >Contact</a>
+
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Exclusive Perfume Deals Just for You</h2>
+  </section>
+
+  <section class="offers-section">
+    <h2>Today's Special Offers</h2>
+    <div class="offer-cards">
+      <div class="card">
+        <img src="C:\Users\LENOVO\Desktop\A\images\18.jpg" alt="Perfume 1">
+        <div class="card-content">
+          <h3>Midnight Musk</h3>
+          <div class="price">
+            <span class="old-price">$87</span>
+            <span class="new-price">$60</span>
+          </div>
+          <a href="C:\Users\LENOVO\Desktop\A\html\buynow.html" ><button>Buy Now</button></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="C:\Users\LENOVO\Desktop\A\images\side image.jpg" alt="Perfume 2">
+        <div class="card-content">
+          <h3>Amber Oud</h3>
+          <div class="price">
+            <span class="old-price">$98</span>
+            <span class="new-price">$70</span>
+          </div>
+          <a href="C:\Users\LENOVO\Desktop\A\html\buynow.html" ><button>Buy Now</button></a>
+
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="C:\Users\LENOVO\Desktop\A\images\pexels-ron-lach-8625543.jpg" alt="Perfume 3">
+        <div class="card-content">
+          <h3>Floral Bloom</h3>
+          <div class="price">
+            <span class="old-price">$88</span>
+            <span class="new-price">$59</span>
+          </div>
+          <a href="C:\Users\LENOVO\Desktop\A\html\buynow.html" ><button>Buy Now</button></a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Perfumora. All rights reserved.
+  </footer>
+</body>
+</html>

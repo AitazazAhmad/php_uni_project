@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfumora - Scents Recommendation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 20px 0;
+      border-bottom: 1px solid #333;
+      position: relative;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #f2c744;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f2c744;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #f2c744;
+    }
+
+    .quiz-section {
+      padding: 40px 20px;
+    }
+
+    .question-block {
+      margin-bottom: 30px;
+    }
+
+    .question-block h3 {
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .option-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .option {
+      background: #1e1e1e;
+      border: 2px solid #444;
+      padding: 12px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      user-select: none;
+    }
+
+    .option input {
+      display: none;
+    }
+
+    .option:hover {
+      border-color: #f2c744;
+    }
+
+    .option.selected {
+      background-color: #f2c744;
+      color: #111;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #f2c744;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d9a700;
+    }
+
+    #recommendation {
+      margin-top: 40px;
+      padding: 25px;
+      background-color: #1b1b1b;
+      border: 1px solid #333;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+      display: none;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #aaa;
+      border-top: 1px solid #333;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        width: 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .option-group {
+        flex-direction: column; /* vertically stack options on small screens */
+        gap: 10px;
+      }
+
+      button {
+        width: 100%;  /* button full width for mobile */
+      }
+
+      h1, h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Perfumora</h1>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product1.html">Products</a></li>
+          <li><a href="scents1.html">Scents</a></li>
+          <li><a href="about1.html">About</a></li>
+          <li><a href="contact1.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="quiz-section">
+    <div class="container">
+      <h2>Find Your Perfect Scent</h2>
+
+      <form id="scentQuiz">
+        <div class="question-block">
+          <h3>1. What mood do you want your fragrance to evoke?</h3>
+          <div class="option-group" data-name="mood">
+            <label class="option"><input type="radio" name="mood" value="fresh" />Fresh</label>
+            <label class="option"><input type="radio" name="mood" value="romantic" />Romantic</label>
+            <label class="option"><input type="radio" name="mood" value="mysterious" />Mysterious</label>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h3>2. Which season is your favorite?</h3>
+          <div class="option-group" data-name="season">
+            <label class="option"><input type="radio" name="season" value="spring" />Spring</label>
+            <label class="option"><input type="radio" name="season" value="summer" />Summer</label>
+            <label class="option"><input type="radio" name="season" value="fall" />Fall</label>
+            <label class="option"><input type="radio" name="season" value="winter" />Winter</label>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h3>3. Do you prefer floral or woody scents?</h3>
+          <div class="option-group" data-name="preference">
+            <label class="option"><input type="radio" name="preference" value="floral" />Floral</label>
+            <label class="option"><input type="radio" name="preference" value="woody" />Woody</label>
+          </div>
+        </div>
+
+        <button type="button" onclick="recommendScent()">Get Recommendation</button>
+      </form>
+
+      <div id="recommendation"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Perfumora. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const optionGroups = document.querySelectorAll('.option-group');
+
+    optionGroups.forEach(group => {
+      const options = group.querySelectorAll('.option');
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          options.forEach(o => o.classList.remove('selected'));
+          option.classList.add('selected');
+          option.querySelector('input').checked = true;
+        });
+      });
+    });
+
+    function recommendScent() {
+      const mood = document.querySelector('input[name="mood"]:checked');
+      const season = document.querySelector('input[name="season"]:checked');
+      const preference = document.querySelector('input[name="preference"]:checked');
+
+      let resultBox = document.getElementById("recommendation");
+      let output = "⚠️ Please answer all questions.";
+
+      if (mood && season && preference) {
+        let scentName = "Universal Scent";
+        let price = "$87";
+
+        if (mood.value === "fresh" && season.value === "summer" && preference.value === "floral") {
+          scentName = "Ocean Bloom";
+          price = "$70";
+          output = `🌸 <strong>${scentName}</strong><br>💰 <strong>${price}</strong><br><br>A light, fresh floral scent perfect for summer days!`;
+        } else if (mood.value === "romantic" && season.value === "fall" && preference.value === "woody") {
+          scentName = "Amber Love";
+          price = "$90";
+          output = `💖 <strong>${scentName}</strong><br>💰 <strong>${price}</strong><br><br>Warm and romantic woody fragrance ideal for fall evenings.`;
+        } else if (mood.value === "mysterious" && season.value === "winter" && preference.value === "woody") {
+          scentName = "Noir Secret";
+          price = "$80";
+          output = `🌑 <strong>${scentName}</strong><br>💰 <strong>${price}</strong><br><br>Deep and mysterious woody scent for winter nights.`;
+        } else {
+          scentName = "Mystery Mist";
+          price = "$99";
+          output = `🌟 <strong>${scentName}</strong><br>💰 <strong>${price}</strong><br><br>Explore our collection to find your unique signature scent.`;
+        }
+      }
+
+      resultBox.style.display = "block";
+      resultBox.innerHTML = output;
+    }
+
+    // Hamburger toggle
+    function toggleMenu() {
+      const nav = document.querySelector('header nav');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>

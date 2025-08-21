@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfume Store - Payment</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 15px;
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    .payment-box {
+      background-color: #111;
+      padding: 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: center;
+      color: gold;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #222;
+      color: #fff;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .price-display {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #00ffcc;
+      font-size: 16px;
+    }
+
+    .pay-btn {
+      margin-top: 20px;
+      background-color: gold;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 16px;
+    }
+
+    .pay-btn:hover {
+      background-color: #e6b800;
+    }
+
+    .success-msg {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+      color: lightgreen;
+      font-size: 16px;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 480px) {
+      .payment-box {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      label, input, select, .pay-btn, .price-display {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-box">
+    <h2>Checkout</h2>
+
+    <label for="perfume">Select Perfume:</label>
+    <select id="perfume" onchange="updatePrice()">
+      <option value="">-- Choose --</option>
+      <option value="79.99">Ocean Bliss</option>
+      <option value="89.99">Midnight Rose</option>
+      <option value="74.99">Amber Sunset</option>
+      <option value="88.99">Bella</option>
+      <option value="70.00">Ocean Bloem</option>
+      <option value="90.00">Amber Oud</option>
+      <option value="99.00">Mystic Oud</option>
+      <option value="59.00">Floral Bloom</option>
+      <option value="49">Fresh Blossom</option>
+      <option value="89">Rose Luxe</option>
+      <option value="43.99">Indonesian</option>
+      <option value="69.99">Lunar</option>
+      <option value="70.99">Mehran</option>
+      <option value="88.99">Fratelli</option>
+      <option value="88.99">Florale</option>
+      <option value="88.99">Seoul</option>
+      <option value="88.99">Vintage</option>
+      <option value="98.99">Flera</option>
+    </select>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()" />
+
+    <div class="price-display" id="price"></div>
+
+    <label for="paymentMethod">Payment Method:</label>
+    <select id="paymentMethod">
+      <option value="">-- Select Method --</option>
+      <option value="easypaisa">EasyPaisa</option>
+      <option value="jazzcash">JazzCash</option>
+      <option value="visa">Visa Card</option>
+      <option value="cod">Cash on Delivery</option>
+    </select>
+
+    <label for="card">Card Number:</label>
+    <input type="text" id="card" maxlength="16" placeholder="1234 5678 9012 3456">
+
+    <label for="expiry">Expiry Date:</label>
+    <input type="text" id="expiry" placeholder="MM/YY">
+
+    <label for="cvv">CVV:</label>
+    <input type="password" id="cvv" maxlength="3" placeholder="123">
+
+    <button class="pay-btn" onclick="makePayment()">Pay Now</button>
+
+    <div class="success-msg" id="successMsg">🎉 Payment Successful! Thank you.</div>
+  </div>
+
+  <script>
+    function updatePrice() {
+      const price = parseFloat(document.getElementById("perfume").value || 0);
+      const qty = parseInt(document.getElementById("quantity").value || 1);
+      const total = (price * qty).toFixed(2);
+      const display = document.getElementById("price");
+      display.innerText = price ? `Total: $${total}` : "";
+    }
+
+    function makePayment() {
+      const card = document.getElementById("card").value.trim();
+      const expiry = document.getElementById("expiry").value.trim();
+      const cvv = document.getElementById("cvv").value.trim();
+      const perfume = document.getElementById("perfume").value;
+      const paymentMethod = document.getElementById("paymentMethod").value;
+
+      if (!perfume || !paymentMethod || !card || !expiry || !cvv) {
+        alert("Please fill all fields correctly.");
+        return;
+      }
+
+      if (card.length !== 16 || isNaN(card)) {
+        alert("Invalid card number.");
+        return;
+      }
+
+      if (cvv.length !== 3 || isNaN(cvv)) {
+        alert("Invalid CVV.");
+        return;
+      }
+
+      document.getElementById("successMsg").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

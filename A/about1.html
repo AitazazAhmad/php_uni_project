@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfumora - About</title>
+  <link rel="stylesheet" href="C:\Users\LENOVO\Desktop\A\css\index.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #e4b95b;
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #e4b95b;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .bg-light-black {
+      background-color: #141414;
+    }
+
+    .product0-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .product0-container img {
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(228, 185, 91, 0.2);
+      width: 40%;
+      min-width: 300px;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .content h2 {
+      font-size: 2.5rem;
+      color: #e4b95b;
+      margin-bottom: 1rem;
+    }
+
+    .para {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 768px) {
+      .product0-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .product0-container img {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Perfumora</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html" >Home</a></li>
+          <li><a href="product1.html">Products</a></li>
+          <li><a href="scents1.html">Scents Recommendation</a></li>
+          <li><a href="about1.html">About</a></li>
+          <li><a href="contact1.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about" class="section bg-light-black">
+    <div class="container">
+      <div class="product0-container">
+        <img src="images\water drop image.jpg" alt="Perfume Story" />
+        <div class="content">
+          <h2>Our Little Story</h2>
+          <p class="para">
+            Welcome to <strong>Perfumora</strong> – a place where fragrance meets art.
+            We bring you luxury scents inspired by nature, passion, and elegance.
+            Our perfumes are crafted to make every moment unforgettable, leaving a
+            trail of sophistication wherever you go.
+            <br /><br />
+            Experience the essence of timeless beauty with every spray.
+            From floral freshness to musky depth, there's a Perfumora for every soul.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Perfume Store. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

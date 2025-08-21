@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - Perfumora</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #eee;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f5c542;
+    }
+
+    .cart-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000;
+      box-sizing: border-box;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      /* Mobile wrap */
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      flex: 1 1 100%;
+      /* Mobile full width */
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: white;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: #f5c542;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      flex: 1 1 100%;
+      /* Mobile full width */
+    }
+
+    button:hover {
+      background: #ffc107;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      display: block;
+      /* Scrollable on small screens */
+      overflow-x: auto;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #333;
+      white-space: nowrap;
+    }
+
+    th {
+      background-color: #222;
+      color: #f5c542;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #0f0;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      /* Mobile friendly */
+      margin-top: 20px;
+      float: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cart-container">
+    <h1>🛒 Your Cart - Perfumora</h1>
+
+    <div class="form-group">
+      <input type="text" id="perfumeName" placeholder="Perfume Name" />
+      <input type="number" id="perfumePrice" placeholder="Price ($)" />
+      <button onclick="addToCart()">Add</button>
+    </div>
+
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>Perfume Name</th>
+          <th>Price ($)</th>
+        </tr>
+      </thead>
+      <tbody id="cartBody"></tbody>
+    </table>
+
+    <div class="total">Total: $ <span id="totalAmount">0</span></div>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+
+  <script>
+    let total = 0;
+
+    function addToCart() {
+      const name = document.getElementById("perfumeName").value.trim();
+      const price = parseFloat(document.getElementById("perfumePrice").value.trim());
+
+      if (name && !isNaN(price)) {
+        const table = document.getElementById("cartBody");
+        const row = table.insertRow();
+        row.innerHTML = `<td>${name}</td><td>PKR ${price.toFixed(0)}</td>`;
+
+        total += price;
+        document.getElementById("totalAmount").innerText = total.toFixed(0);
+
+        // Reset input fields
+        document.getElementById("perfumeName").value = "";
+        document.getElementById("perfumePrice").value = "";
+      } else {
+        alert("Please enter valid perfume name and price.");
+      }
+    }
+  </script>
+</body>
+
+</html>

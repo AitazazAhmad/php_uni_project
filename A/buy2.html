@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy Now - Perfumora</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      color: #eee;
+      padding: 30px;
+      margin: 0;
+    }
+    .container {
+      max-width: 500px;
+      width: 90%;
+      margin: auto;
+      background: #222;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    h2 {
+      color: #f2c744;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .info {
+      margin-bottom: 25px;
+      font-size: 18px;
+    }
+    .info span {
+      color: #f2c744;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #333;
+      color: white;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #f2c744;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #d0a92a;
+    }
+    select option {
+      background: #222;
+      color: #fff;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .info {
+        font-size: 16px;
+      }
+      input, select, button {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Payment Details</h2>
+    <div class="info">
+      Product: <span id="productName">Lunar</span><br>
+      Price: $<span id="productPrice">69.99</span>
+    </div>
+
+    <select id="paymentMethod">
+      <option value="">Select Payment Method</option>
+      <option value="Visa">Visa</option>
+      <option value="Mastercard">Mastercard</option>
+      <option value="JazzCash">JazzCash</option>
+      <option value="EasyPaisa">EasyPaisa</option>
+    </select>
+
+    <input type="text" placeholder="Card Number">
+    <input type="text" placeholder="Cardholder Name">
+    <input type="text" placeholder="Expiry (MM/YY)">
+    <input type="text" placeholder="CVV">
+
+    <button onclick="confirmPayment()">Pay Now</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const price = params.get('price');
+
+    if (name && price) {
+      document.getElementById('productName').textContent = name;
+      document.getElementById('productPrice').textContent = price;
+    }
+
+    function confirmPayment() {
+      const method = document.getElementById('paymentMethod').value;
+      if (!method) {
+        alert("Please select a payment method.");
+        return;
+      }
+      alert(`Payment successful for ${name || 'Product'} - $${price || 'Price'} via ${method}`);
+      window.location.href = "products.html";
+    }
+  </script>
+
+</body>
+</html>

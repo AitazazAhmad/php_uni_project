@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfumora - Products</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #1a1a1a;
+      color: #eee;
+    }
+
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #f2c744;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f2c744;
+    }
+
+    .hero-poster {
+      position: relative;
+      height: 75vh;
+      width: 95vw;
+      overflow: hidden;
+      margin-bottom: 40px;
+      border-radius: 12px;
+    }
+
+    .poster-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      animation: slideShow 32s infinite;
+    }
+
+    .poster-slide:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .poster-slide:nth-child(2) {
+      animation-delay: 4s;
+    }
+
+    .poster-slide:nth-child(3) {
+      animation-delay: 8s;
+    }
+
+    .poster-slide:nth-child(4) {
+      animation-delay: 12s;
+    }
+
+    @keyframes slideShow {
+      0% {
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .products-section {
+      padding: 40px;
+      background: #1a1a1a;
+    }
+
+    .products-section h2 {
+      text-align: center;
+      font-size: 36px;
+      color: #f2c744;
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      background: #222;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-10px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      font-size: 20px;
+      color: #f2c744;
+    }
+
+    .product p {
+      color: #ccc;
+      margin: 8px 0;
+    }
+
+    .product button {
+      background-color: #f2c744;
+      color: #111;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #d0a92a;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .navbar a {
+        margin: 10px 0;
+        font-size: 18px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Perfumora</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav>
+      <ul id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product1.html">Products</a></li>
+        <li><a href="scents1.html">Scents Recommendation</a></li>
+        <li><a href="about1.html">About</a></li>
+        <li><a href="contact1.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Poster Slideshow -->
+  <section class="hero-poster">
+    <img src="images\black theme image.jpg" class="poster-slide" alt="Poster 1">
+    <img src="images\last.jpeg" class="poster-slide" alt="Poster 2">
+    <img src="images\7815884-hd_1080_1920_25fps.mp4" class="poster-slide" alt="Poster 3">
+    <img src="images\pexels-elkady-6958875.jpg" class="poster-slide" alt="Poster 4">
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <h2>Best Selling Products</h2>
+    <div class="product-grid">
+      <div class="product"><img src="images\AdobeStock_567491180_Preview.jpeg">
+        <h3>Indonesian</h3>
+        <p>$49.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\AdobeStock_575144312_Preview.jpeg">
+        <h3>Lunar</h3>
+        <p>$69.99</p> <a href="buy2.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\AdobeStock_594660942_Preview.jpeg">
+        <h3>Mehran</h3>
+        <p>$70.99</p> <a href="buy3.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\water splash perfume.jpg">
+        <h3>Bella</h3>
+        <p>$88.99</p> <a href="buy4.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\image.jpg">
+        <h3>Jadore</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\AdobeStock_678639689_Preview.jpeg">
+        <h3>Fratelli</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\daisy black perfume.png">
+        <h3>Florale</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\gallery img 2.png">
+        <h3>Seoul</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\Screenshot 2024-04-29 182843.png">
+        <h3>Moiselle</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\Screenshot 2024-04-29 183054.png">
+        <h3>Aqua</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\pexels-ron-lach-8625543.jpg">
+        <h3>Vintage</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\Screenshot 2024-04-29 182749.png">
+        <h3>Jasmin</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\Screenshot 2024-04-29 183139.png">
+        <h3>Vita</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\water drop image.jpg">
+        <h3>Givenchy</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+
+      </div>
+      <div class="product"><img src="images\Warm Colors Elegant Eau de Parfum Instagram Story .png">
+        <h3>Rielle</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\pexels-tree-lee-1479554-2922276.jpg">
+        <h3>Blush</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\pexels-mary-jo-post-158522179-11059440.jpg">
+        <h3>Flora</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\pexels-jai-vashist-562251050-19630008.jpg">
+        <h3>Veporistar</h3>
+        <p>$88.99</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\Ocean Bloom.jpeg">
+        <h3>Ocean Bloom </h3>
+        <p>$70</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+      <div class="product"><img src="images\Noir Secret.jpg">
+        <h3>Noir Secret</h3>
+        <p>$80</p> <a href="buynow.html"><button>Buy Now</button></a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Perfume Store. All rights reserved.</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+</body>
+
+</html>

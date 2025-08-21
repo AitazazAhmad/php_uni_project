@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Title -->
+    <title>Perfumora | Buy Luxury Perfumes Online - Perfume Store</title>
+
+    <!-- SEO Meta Description -->
+    <meta name="description"
+      content="Perfumora is your trusted online perfume store. Discover luxury, long-lasting fragrances for men & women. Shop perfumes online with fast delivery.">
+
+    <!-- SEO Keywords -->
+    <meta name="keywords"
+      content="perfume store, buy perfumes online, luxury perfumes, best perfumes, fragrances for men, fragrances for women, Perfumora">
+
+    <!-- Author -->
+    <meta name="author" content="Perfumora">
+
+    <!-- Open Graph (for social media sharing) -->
+    <meta property="og:title" content="Perfumora | Buy Luxury Perfumes Online">
+    <meta property="og:description"
+      content="Discover luxury, long-lasting perfumes for men & women at Perfumora. Shop online now with free & fast delivery.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsiteurl.com">
+    <meta property="og:image" content="https://yourwebsiteurl.com/images/perfume-banner.jpg">
+
+    <!-- Favicon (optional if you have logo) -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+    <!-- Tailwind & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+      }
+
+      body {
+        background: #fdfdfd;
+        color: #333;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #000;
+        padding: 15px 30px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 26px;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .navbar {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar a {
+        margin: 0 12px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .navbar a:hover {
+        color: #ffd700;
+      }
+
+      .Signup-btn {
+        padding: 6px 14px;
+        background: #ffd700;
+        color: #000;
+        border-radius: 20px;
+        font-weight: bold;
+        margin-left: 15px;
+        transition: 0.3s;
+      }
+
+      .signup-btn:hover {
+        background: #fff;
+        color: #000;
+      }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .search-container input {
+        padding: 6px 10px;
+        border: none;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .search-container button {
+        padding: 6px 12px;
+        background: #ffd700;
+        border: none;
+        border-radius: 0 3px 3px 0;
+        cursor: pointer;
+      }
+
+      .hero {
+        position: relative;
+        height: 60vh;
+        overflow: hidden;
+      }
+
+      #bg-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      .hero-content h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        background: #ffd700;
+        color: #000;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+      }
+
+      .features {
+        text-align: center;
+        padding: 60px 30px 30px;
+      }
+
+      .features h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+
+      .feature-grid {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .feature-box {
+        flex: 1;
+        max-width: 280px;
+        padding: 20px;
+        background: #fff8dc;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-box h3 {
+        margin-bottom: 10px;
+        font-size: 22px;
+        color: #444;
+      }
+
+      .products {
+        padding: 60px 30px;
+        background: #f5f5f5;
+        text-align: center;
+      }
+
+      .products h2 {
+        font-size: 30px;
+        margin-bottom: 40px;
+      }
+
+      .product-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .product-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 250px;
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .product-card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .product-card h3 {
+        margin-top: 15px;
+        font-size: 20px;
+        color: #000;
+      }
+
+      .product-card p {
+        color: #666;
+        margin-top: 5px;
+        margin-bottom: 8px;
+      }
+
+      .product-card .desc {
+        font-size: 14px;
+        color: #888;
+      }
+
+      /* Footer */
+      footer {
+        background: #000;
+        color: #fff;
+        padding: 40px 30px;
+      }
+
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .footer-col {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-col h4 {
+        margin-bottom: 15px;
+        font-size: 18px;
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-col ul li a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .footer-col ul li a:hover {
+        color: #ffd700;
+      }
+
+      .newsletter input[type="email"] {
+        padding: 8px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+
+      .newsletter button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        background: #ffd700;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .socials {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+
+      .socials i {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 14px;
+        color: #aaa;
+      }
+
+      @media(max-width: 768px) {
+
+        .feature-grid,
+        .product-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-content h1 {
+          font-size: 28px;
+        }
+
+        .hero-content p {
+          font-size: 16px;
+        }
+
+        .footer-grid {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .rating {
+          font-size: 18px;
+          color: #f2c744;
+          margin-top: 10px;
+        }
+
+        .cart-btn {
+          margin-top: 12px;
+          padding: 8px 16px;
+          background-color: #f2c744;
+          color: #000;
+          border: none;
+          border-radius: 25px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+
+        .cart-btn:hover {
+          background-color: #d4ae26;
+        }
+
+
+
+      }
+
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 10px;
+        }
+
+        .navbar a {
+          margin: 5px 0;
+        }
+
+        .search-container {
+          flex-direction: column;
+          gap: 10px;
+          align-items: stretch;
+        }
+
+        .search-container input,
+        .search-container button {
+          width: 100%;
+        }
+
+        .hero-content {
+          padding: 10px;
+        }
+
+        .hero-content h1 {
+          font-size: 24px;
+        }
+
+        .hero-content p {
+          font-size: 14px;
+        }
+
+        .product-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .product-card {
+          width: 90%;
+          max-width: 100%;
+        }
+
+        .footer-grid {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .footer-col {
+          width: 100%;
+        }
+
+        #bg-video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .hero {
+          height: 60vh;
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 28px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          display: none;
+          flex-direction: column;
+          background: #000;
+          width: 100%;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          text-align: center;
+          padding: 10px 0;
+        }
+
+        .navbar a {
+          margin: 10px 0;
+          font-size: 18px;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .navbar.active {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">Perfumora</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="navbar" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="product1.html">Products</a>
+      <a href="scents1.html">Scents</a>
+      <a href="about1.html">About</a>
+      <a href="http://localhost:8080/php_project/A/contact1.php">Contact</a>
+      <a href="http://localhost:8080/php_project/A/sign%20up.php" class="Sign Up-btn">Sign Up</a>
+    </nav>
+    <div class="search-container">
+      <input type="text" placeholder="Search perfumes..." />
+      <button>🔍</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <video autoplay muted loop id="bg-video">
+      <source src="images\first page main video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>Awaken Your Senses</h1>
+      <p>Discover our exclusive range of luxurious perfumes that tell your story.</p>
+      <a href="shopnow.html" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Why Perfumora?</h2>
+    <div class="feature-grid">
+      <div class="feature-box">
+        <h3>100% Authentic</h3>
+        <p>All our fragrances are original and imported from global brands.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Long Lasting</h3>
+        <p>Experience long-lasting fragrances designed for every mood and moment.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Free Shipping</h3>
+        <p>Free delivery on all orders over $50. Fast and secure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+
+  <!-- Products -->
+  <section class="products">
+    <h2>Our Featured Perfumes</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="images\fancy image.jpg" alt="Ocean Bliss" />
+        <h3>Ocean Bliss</h3>
+        <p>$79.99</p>
+        <p class="desc">Fresh marine notes with a hint of citrus. Ideal for summer days.</p>
+        <div class="rating">⭐⭐⭐⭐☆</div>
+        <a href="html\buynow.html"><button>Add to Cart</button></a>
+
+      </div>
+
+      <div class="product-card">
+        <img src="images\AdobeStock_575144312_Preview.jpeg" alt="Midnight Rose" />
+        <h3>Midnight Rose</h3>
+        <p>$89.99</p>
+        <p class="desc">A sensual mix of dark berries and rose. Elegant and romantic.</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <a href="buynow.html"><button>Add to Cart</button></a>
+
+      </div>
+
+      <div class="product-card">
+        <img src="images\water splash perfume.jpg" alt="Amber Sunset" />
+        <h3>Amber Sunset</h3>
+        <p>$74.99</p>
+        <p class="desc">Warm amber, vanilla, and musk — perfect for cozy evenings.</p>
+        <div class="rating">⭐⭐⭐⭐☆</div>
+        <a href="buynow.html"><button>Add to Cart</button></a>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  </div>
+  </section>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="shopnow.html">Shop</a></li>
+          <li><a href="offer.html">Offers</a></li>
+          <li><a href="FQAS.html">FAQs</a></li>
+          <li><a href="terms.html">Terms & Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter">
+        <h4>Subscribe</h4>
+        <p>Get updates on new arrivals and exclusive offers.</p>
+        <input type="email" placeholder="Your email" />
+        <button onclick="subscribe()">Subscribe</button>
+
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="socials" style="display: flex; gap: 15px;">
+          <a href="https://facebook.com" target="_blank" title="Facebook">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"
+              style="width:24px; filter: invert(100%);" />
+          </a>
+          <a href="https://instagram.com" target="_blank" title="Instagram">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
+              style="width:24px; filter: invert(100%);" />
+          </a>
+          <a href="https://twitter.com" target="_blank" title="Twitter">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter"
+              style="width:24px; filter: invert(100%);" />
+          </a>
+          <a href="https://youtube.com" target="_blank" title="YouTube">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"
+              style="width:24px; filter: invert(100%);" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2025 Perfumora. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/923001234567" target="_blank" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat on WhatsApp"
+      style="width: 32px; height: 32px;">
+  </a>
+
+  <script>
+    function subscribe() {
+      const emailInput = document.querySelector('.newsletter input[type="email"]');
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // You can later add actual backend logic here.
+      alert("🎉 Successfully Subscribed!");
+      emailInput.value = ""; // Clear the field
+    }
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+  </script>
+
+
+</body>
+
+</html>

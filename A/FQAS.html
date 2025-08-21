@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQs - Perfumora</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff7f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-container h1 {
+      text-align: center;
+      color: #d99179;
+      margin-bottom: 30px;
+    }
+
+    .faq {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .faq:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      cursor: pointer;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #4b3e3e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      color: #d99179;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      color: #666;
+      font-size: 1em;
+      line-height: 1.5;
+      padding-left: 10px;
+    }
+
+    .faq.active .faq-answer {
+      max-height: 500px;
+      margin-top: 10px;
+    }
+
+    .arrow {
+      font-size: 1.4em;
+      transition: transform 0.3s ease;
+    }
+
+    .faq.active .arrow {
+      transform: rotate(90deg);
+      color: #d99179;
+    }
+  </style>
+</head>
+<body>
+  <div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq">
+      <div class="faq-question">
+        What is Perfumora?
+        <span class="arrow">&#9656;</span>
+      </div>
+      <div class="faq-answer">
+        Perfumora is a premium perfume store offering a wide range of luxury and everyday fragrances for men and women.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">
+        Do you offer free delivery?
+        <span class="arrow">&#9656;</span>
+      </div>
+      <div class="faq-answer">
+        Yes! We offer free delivery on all orders over Rs. 3000 all across Pakistan.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">
+        Can I return a perfume after opening it?
+        <span class="arrow">&#9656;</span>
+      </div>
+      <div class="faq-answer">
+        Unfortunately, due to hygiene reasons, opened products cannot be returned. However, if the product is sealed and unused, you may return it within 7 days.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">
+        How long does shipping take?
+        <span class="arrow">&#9656;</span>
+      </div>
+      <div class="faq-answer">
+        We usually deliver within 2-4 business days in major cities and 3-5 days in remote areas.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">
+        Do you sell testers or original perfumes?
+        <span class="arrow">&#9656;</span>
+      </div>
+      <div class="faq-answer">
+        We only sell 100% original perfumes and high-quality testers at affordable prices.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const faqs = document.querySelectorAll('.faq');
+
+    faqs.forEach(faq => {
+      faq.querySelector('.faq-question').addEventListener('click', () => {
+        faq.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
